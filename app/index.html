@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no" />
+        <title>Title</title>
+
+        <!-- build:css styles/main.css -->
+            <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
+            <link rel="stylesheet" href="../bower_components/angular-loading-bar/src/loading-bar.css">
+            <link rel="stylesheet" href="../bower_components/perfect-scrollbar/css/perfect-scrollbar.css">
+            <link rel="stylesheet" href="assets/styles/main.css">
+        <!-- endbuild -->
+
+        <!-- Facebook SDK -->
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '1166730260014292',
+                    xfbml      : true,
+                    version    : 'v2.8'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+
+    </head>
+    <body>
+        <md-header></md-header>
+        <side-bar></side-bar>
+        <div ui-view></div>
+
+        <!--build:js scripts/vendor.js-->
+            <!-- bower:js -->
+            <!-- endbower -->
+        <!--endbuild-->
+
+         <!--build:js scripts/main.js -->
+            <script type="text/javascript" src="news/app.js"></script>
+            <script type="text/javascript" src="utils/functions/app.js"></script>
+            <script type="text/javascript" src="components/articles/app.js"></script>
+            <script type="text/javascript" src="components/topics/app.js"></script>
+            <script type="text/javascript" src="components/magazines/app.js"></script>
+            <script type="text/javascript" src="components/accounts/app.js"></script>
+            <script type="text/javascript" src="components/header/app.js"></script>
+            <script type="text/javascript" src="components/sidebar/app.js"></script>
+            <script type="text/javascript" src="components/articles/router.js"></script>
+            <script type="text/javascript" src="components/magazines/router.js"></script>
+            <script type="text/javascript" src="resources/app.js"></script>
+
+            <script type="text/javascript" src="resources/resources.service.js"></script>
+            <script type="text/javascript" src="components/articles/articles.service.js"></script>
+
+
+            <script type="text/javascript" src="components/articles/home.controller.js"></script>
+            <script type="text/javascript" src="components/header/header.controller.js"></script>
+            <script type="text/javascript" src="components/magazines/magazines.controller.js"></script>
+            <script type="text/javascript" src="components/accounts/login.controller.js"></script>
+
+            <script type="text/javascript" src="components/header/header.directive.js"></script>
+            <script type="text/javascript" src="components/topics/topics.directive.js"></script>
+            <script type="text/javascript" src="components/sidebar/sidebar.directive.js"></script>
+
+            <script type="text/javascript" src="utils/functions/date-armenian.filter.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript">
+            Ps.initialize(document.body);
+        </script>
+    </body>
+</html>

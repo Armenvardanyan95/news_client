@@ -1,0 +1,273 @@
+@mixin transitions($property, $delay: 600ms){
+  -webkit-transition: $property $delay;
+  transition: $property $delay;
+}
+
+@media screen and (max-width: 700px) {
+  .side-navigation {
+    visibility: hidden !important;
+    clear: both !important;
+    display: none !important;
+  }
+}
+
+
+.fixed-header {
+  .md-toolbar-tools {
+    background-color: white !important;
+    input[type=search] {
+      float: right;
+    }
+    a {
+      color: forestgreen;
+      @include transitions(color);
+    }
+    a:hover {
+      color: green;
+    }
+  }
+  background: white !important;
+  border-bottom: {
+    color: forestgreen !important;
+    width: 2px !important;
+  };
+  height: 10vh;
+
+}
+
+input[type=search] {
+  @include transitions(max-width);
+  padding: 5px;
+  border-radius: 17px;
+  //border-color: forestgreen;
+  border-width: 0px;
+  max-height: 18px;
+  align-self: center;
+  float: right;
+  max-width: 5px;
+  cursor: pointer;
+  outline: none;
+  background-color: #F5F5DC;
+  background: url("../assets/img/search.svg") no-repeat scroll 2px 2px;
+  padding-left:30px;
+  margin: {
+    right: 10px;
+  };
+  font: {
+    size: 16px;
+    color: white;
+  }
+}
+
+input[type=search]:focus {
+  max-width: 180px;
+  background-color: white;
+  font: {
+    color: #323232;
+  }
+}
+
+.search-results {
+  position: fixed;
+  right: 3%;
+  top: 9%;
+  border-width: 3px;
+  border-color: gray;
+}
+
+.list-item {
+  max-height: 5px !important;
+  width: 180px;
+}
+
+.topics {
+  md-chips {
+    float: left;
+    md-chip {
+      line-height: 24px;
+      height: 24px;
+      font-size: 13px;
+    }
+  }
+
+}
+
+
+md-sidenav {
+  max-height: 500px;
+}
+
+//side-bar {
+//  position: fixed;
+//  top: 16%;
+//  left: 5%;
+//  z-index: 1000;
+//}
+
+.with-side-nav {
+  float: right;
+}
+
+.scrollable {
+  overflow: scroll;
+  height: 90vh;
+}
+
+.articles {
+  position: absolute;
+  md-card-header{
+    padding: 8px;
+  }
+  md-card {
+    margin-bottom: 25px !important;
+    box-shadow: 4px 4px 4px #b7b7b7;
+  }
+  a {
+    cursor: pointer;
+  }
+  a.innerLink{
+    color: inherit;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+  a.outerLink {
+    color: forestgreen;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  a.outerLink:hover {
+    @include transitions(color);
+    color: green;
+  }
+
+  .innerLink:hover{
+    text-decoration: underline;
+  }
+}
+
+.magazines {
+  float: left;
+  padding-top: 3%;
+  padding-left: 2%;
+  max-width: 90%;
+  md-card {
+    max-width: 50%;
+  }
+  a {
+    cursor: pointer;
+  }
+  a.innerLink{
+    color: inherit;
+    text-decoration: none;
+  }
+  a.outerLink {
+    color: forestgreen;
+    text-decoration: none;
+  }
+  a.outerLink:hover, .innerLink:hover{
+    text-decoration: underline;
+  }
+}
+
+.side-navigation {
+  position: fixed !important;
+  top: 12vh;
+  width: 17vw;
+  max-height: 70vh;
+  left: 8vw;
+  .md-button {
+    height: 1vh;
+    font-size: 12px !important;
+  }
+
+  md-icon {
+    color: black !important;
+  }
+  md-subheader {
+    background: #bababa;
+    color: white !important;
+    font-weight: bolder !important;
+  }
+}
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+  color: forestgreen !important;
+  background-color: forestgreen !important;
+}
+
+md-input-container.md-input-focused label {
+  color: forestgreen !important;
+}
+
+.rightFloat {
+  float: right !important;
+}
+
+md-dialog {
+  md-content {
+    .md-button {
+      float: right;
+      background: forestgreen;
+      color: white;
+    }
+    md-icon {
+      color: white;
+    }
+    .md-button:hover {
+      background: green !important;
+    }
+  }
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+  border-color: forestgreen !important;
+}
+
+md-dialog.loginDialog {
+  md-toolbar {
+    background: forestgreen;
+  }
+  md-tabs{
+    md-tab-item.md-active{
+      color: forestgreen;
+    }
+  }
+}
+
+.color-icon {
+  color: forestgreen;
+}
+
+md-header {
+  md-divider {
+    background: forestgreen;
+    height: 2px;
+  }
+}
+
+//::-webkit-scrollbar {
+//  display: none;
+//}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+#loading-bar .bar {
+  background: forestgreen;
+}
+
+#loading-bar .peg {
+  -moz-box-shadow: forestgreen 1px 0 6px 1px;
+  -ms-box-shadow: forestgreen 1px 0 6px 1px;
+  -webkit-box-shadow: forestgreen 1px 0 6px 1px;
+  box-shadow: forestgreen 1px 0 6px 1px;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  forestgreen;
+  border-left-color: forestgreen;
+}
