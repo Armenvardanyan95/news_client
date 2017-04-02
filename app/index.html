@@ -36,14 +36,16 @@
 
 
     </head>
-    <body>
-        <md-header></md-header>
-        <side-bar></side-bar>
-        <div ui-view></div>
-
+    <body scroll-direction>
+        <md-header ng-class="{'sticky-header': scrollDirection == 'up'}"></md-header>
+        <div>
+            <side-bar></side-bar>
+            <div ui-view></div>
+        </div>
         <!--build:js scripts/vendor.js-->
             <!-- bower:js -->
             <!-- endbower -->
+            <script type="text/javascript" src="../node_modules/ng-infinite-scroll/build/ng-infinite-scroll.js"></script>
         <!--endbuild-->
 
          <!--build:js scripts/main.js -->
@@ -59,20 +61,37 @@
             <script type="text/javascript" src="components/magazines/router.js"></script>
             <script type="text/javascript" src="resources/app.js"></script>
 
-            <script type="text/javascript" src="resources/resources.service.js"></script>
+
+            <script type="text/javascript" src="resources/topics.service.js"></script>
+            <script type="text/javascript" src="resources/articles.service.js"></script>
+            <script type="text/javascript" src="resources/magazines.service.js"></script>
+            <script type="text/javascript" src="resources/users.service.js"></script>
+            <script type="text/javascript" src="resources/stats.service.js"></script>
+            <script type="text/javascript" src="resources/handlers.service.js"></script>
             <script type="text/javascript" src="components/articles/articles.service.js"></script>
+            <script type="text/javascript" src="components/accounts/accounts.service.js"></script>
+            <script type="text/javascript" src="components/topics/topics.service.js"></script>
+            <script type="text/javascript" src="components/magazines/magazine.service.js"></script>
 
 
             <script type="text/javascript" src="components/articles/home.controller.js"></script>
             <script type="text/javascript" src="components/header/header.controller.js"></script>
             <script type="text/javascript" src="components/magazines/magazines.controller.js"></script>
+            <script type="text/javascript" src="components/magazines/magazine.controller.js"></script>
             <script type="text/javascript" src="components/accounts/login.controller.js"></script>
+            <script type="text/javascript" src="components/articles/history.controller.js"></script>
+
 
             <script type="text/javascript" src="components/header/header.directive.js"></script>
             <script type="text/javascript" src="components/topics/topics.directive.js"></script>
             <script type="text/javascript" src="components/sidebar/sidebar.directive.js"></script>
+            <script type="text/javascript" src="components/articles/articles.directive.js"></script>
+            <script type="text/javascript" src="components/magazines/magazine.directive.js"></script>
+            <script type="text/javascript" src="components/sidebar/sidebar-content.directive.js"></script>
 
             <script type="text/javascript" src="utils/functions/date-armenian.filter.js"></script>
+
+            <script type="text/javascript" src="utils/directives/scroll-hide.directive.js"></script>
         <!-- endbuild -->
         <script type="text/javascript">
             Ps.initialize(document.body);

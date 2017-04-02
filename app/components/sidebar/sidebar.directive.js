@@ -10,7 +10,17 @@
     /* @ngInject */
     function sideBar() {
         var directive = {
-            templateUrl: 'components/sidebar/sidebar.html',
+            template:
+            '<md-sidenav class="md-sidenav-left md-whiteframe-z2 side-navigation" md-is-locked-open="true">' +
+                '<sidebar-content></sidebar-content>' +
+            '</md-sidenav>' +
+
+            '<md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">' +
+                '<md-toolbar class="md-theme-light">' +
+                    '<h1 class="md-toolbar-tools">Sidenav Right</h1>' +
+                '</md-toolbar>' +
+                '<sidebar-content></sidebar-content>' +
+            '</md-sidenav>',
             bindToController: true,
             controller: SideBarController,
             controllerAs: 'vm',

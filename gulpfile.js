@@ -7,6 +7,7 @@ const gulpif = require('gulp-if');
 const connect = require('gulp-connect');
 const sass = require('gulp-sass');
 const purify = require('gulp-purifycss');
+const watch = require('gulp-watch');
 
 const cleanCss = require('gulp-clean-css');
 
@@ -154,6 +155,7 @@ gulp.task('watch', function() {
     gulp.watch('./app/**/**/*.*', function (){
         runSequence('rebuild');
     });
+    watch('./dist').pipe(connect.reload());
 });
 
 

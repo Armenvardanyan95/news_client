@@ -3,7 +3,7 @@
   transition: $property $delay;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 960px) {
   .side-navigation {
     visibility: hidden !important;
     clear: both !important;
@@ -11,27 +11,63 @@
   }
 }
 
+magazine {
+  margin-bottom: 40px !important;
+}
+
+body {
+  background-color: #fafafa !important;
+}
+
+.social {
+  text-decoration: none;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.search-input {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.search-input-inside {
+  height: 40px !important;
+  border: none !important;
+}
+
+.in-article-link {
+  text-decoration: none;
+  color: black;
+  img {
+    width: 100%;
+    //height: 350px;
+    overflow: hidden;
+  }
+}
 
 .fixed-header {
+  position: fixed;
+  top: 0px;
+  background-color: white !important;
   .md-toolbar-tools {
-    background-color: white !important;
     input[type=search] {
       float: right;
     }
     a {
       color: forestgreen;
+      padding-right: 24px;
       @include transitions(color);
     }
     a:hover {
       color: green;
     }
   }
-  background: white !important;
+  background: #ffffff !important;
   border-bottom: {
     color: forestgreen !important;
     width: 2px !important;
   };
-  height: 10vh;
+  height: 6%;
 
 }
 
@@ -39,15 +75,14 @@ input[type=search] {
   @include transitions(max-width);
   padding: 5px;
   border-radius: 17px;
-  //border-color: forestgreen;
   border-width: 0px;
-  max-height: 18px;
+  max-height: 16px;
   align-self: center;
   float: right;
   max-width: 5px;
   cursor: pointer;
   outline: none;
-  background-color: #F5F5DC;
+  background-color: #fafafa !important;
   background: url("../assets/img/search.svg") no-repeat scroll 2px 2px;
   padding-left:30px;
   margin: {
@@ -61,7 +96,8 @@ input[type=search] {
 
 input[type=search]:focus {
   max-width: 180px;
-  background-color: white;
+  background-color: forestgreen;
+  background: url("../assets/img/search-active.svg") no-repeat scroll 2px 2px;
   font: {
     color: #323232;
   }
@@ -69,10 +105,66 @@ input[type=search]:focus {
 
 .search-results {
   position: fixed;
-  right: 3%;
-  top: 9%;
-  border-width: 3px;
-  border-color: gray;
+  right: 16%;
+  top: 66px;
+  z-index: 10000;
+  box-shadow: 3px 3px 3px 3px #b6b6b6 !important;
+  //border: solid 1px black;
+  border-top: none !important;
+  border-bottom-right-radius: 7px !important;
+  border-bottom-left-radius: 7px !important;
+  background-color: #fafafa;
+  md-toolbar {
+    height: 7px !important;
+  }
+  .md-no-sticky {
+    background-color: white !important;
+    color: black !important;
+    font-size: 16px;
+    max-height: 35px !important;
+    min-height: 35px !important;
+    height: 35px !important;
+    line-height: 6px;
+  }
+  md-divider {
+    background-color: #999999;
+    height: 1px;
+    vertical-align: bottom;
+  }
+  .search-avatar {
+    width: 28px;
+    height: 28px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+  }
+  .search-avatar {
+    margin-right: 5px;
+    margin-top: 3px;
+  }
+
+  //md-list-item {
+  //  @include transitions(background-color)
+  //}
+  //md-list-item:hover {
+  //  background-color: #4ea24e !important;
+  //  cursor: pointer;
+  //}
+  .md-list-item-text {
+    a {
+      font-size: 16px;
+      cursor: pointer;
+      color: forestgreen;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  md-list-item, md-list-item .md-list-item-inner {
+    min-height: 35px !important;
+    max-height: 35px !important;
+  }
 }
 
 .list-item {
@@ -81,20 +173,47 @@ input[type=search]:focus {
 }
 
 .topics {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  background-color: #fafafa !important;
+  margin-bottom: 0 !important;
   md-chips {
     float: left;
     md-chip {
       line-height: 24px;
-      height: 24px;
-      font-size: 13px;
+      padding-right: 3px;
+      height: 32px;
+      font-size: 15px;
+      border-radius: 3px !important;
+      background-color: #ffffff !important;
+      border: 1px solid rgba(0,0,0,.15);
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      a:hover {
+        color: darkgreen !important;
+      }
     }
   }
 
 }
 
+.forest-green {
+  color: forestgreen !important;
+}
 
-md-sidenav {
-  max-height: 500px;
+//.crop {
+//  height: 300px;
+//  width: 1200px;
+//  overflow: hidden;
+//}
+
+.sidebar-open {
+  position: absolute;
+  left: 1vw;
+  top: 2.5vh;
 }
 
 //side-bar {
@@ -108,19 +227,49 @@ md-sidenav {
   float: right;
 }
 
+md-sidenav {
+  md-toolbar {
+    height: 8vh;
+    background-color: forestgreen !important;
+  }
+}
+
 .scrollable {
   overflow: scroll;
   height: 90vh;
 }
 
+.float-right {
+  float: right !important;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0px;
+}
+
+md-progress-circular {
+  overflow: hidden !important;
+}
+
 .articles {
   position: absolute;
+  top: 8%;
+  width: 100%;
   md-card-header{
     padding: 8px;
   }
   md-card {
-    margin-bottom: 25px !important;
+    margin-bottom: 20px !important;
     box-shadow: 4px 4px 4px #b7b7b7;
+    border-radius: 4px;
+    md-card-title {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+    md-card-actions {
+      margin: 0;
+    }
   }
   a {
     cursor: pointer;
@@ -172,10 +321,27 @@ md-sidenav {
 
 .side-navigation {
   position: fixed !important;
-  top: 12vh;
-  width: 17vw;
-  max-height: 70vh;
-  left: 8vw;
+  top: 9%;
+  box-shadow: 0px 0px 0px !important;
+  width: 16%;
+  max-height: 50%;
+  left: 16%;
+  background-color: #fafafa !important;
+  md-content {
+    background-color: inherit;
+    padding: 0;
+    md-list {
+      padding: 0;
+      md-list-item {
+        padding-left: 4px;
+        padding-right: 4px;
+        md-icon {
+          padding-right: 4px;
+          padding-bottom: 4px;
+        }
+      }
+    }
+  }
   .md-button {
     height: 1vh;
     font-size: 12px !important;
@@ -240,7 +406,7 @@ md-dialog.loginDialog {
 }
 
 md-header {
-  md-divider {
+  .under-header {
     background: forestgreen;
     height: 2px;
   }
@@ -253,7 +419,6 @@ md-header {
 .scrollable::-webkit-scrollbar {
   display: none;
 }
-
 
 
 #loading-bar .bar {

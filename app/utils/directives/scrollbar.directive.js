@@ -16,6 +16,7 @@
         return directive;
 
         function link(scope, element, attrs) {
+            console.log('wfwfwefwef');
             PS.initialize(element);
         }
     }

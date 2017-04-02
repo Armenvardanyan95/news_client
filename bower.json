@@ -28,7 +28,8 @@
     "ngstorage": "^0.3.11",
     "angular-animate": "1.5.8",
     "angular-resource": "1.5.8",
-    "perfect-scrollbar": "^0.6.16"
+    "perfect-scrollbar": "^0.6.16",
+    "rxjs": "^4.1.0"
   },
   "resolutions": {
     "angular": "1.5.8",

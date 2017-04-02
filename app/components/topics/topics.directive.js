@@ -13,32 +13,25 @@
             template: '<md-card class="topics">'+
                         '<md-card-header>' +
                             '<md-card-header-text>' +
-                                '<span class="md-title">' +
-                                    'Հետաքրքիր թեմաներ' +
+                                // '<span class="md-title">' +
                                     '<md-card-content>' +
                                         '<md-chips>' +
                                             '<md-chip ng-repeat="topic in topics.topics">' +
-                                                '{{ topic.title }}' + 
+                                                '<a href="" ng-class="{\'forest-green\': topic.is_subscribed}">{{ topic.title }} &nbsp; &nbsp;</a>' +
+                                                '<a href="" ng-click="topics.subscribe(topic)">' +
+                                                    '<md-icon md-svg-icon="assets/img/{{ topic.is_subscribed ? \'topic-added\' : \'add-topic\'}}.svg">' +
+                                                    '</md-icon>' +
+                                                    '<md-tooltip md-direction="bottom">' +
+                                                        '{{ topic.is_subscribed ? \'Ապաբաժանորդագրվել\' : \'Բաժանորդագրվել\' }} ' +
+                                                    '</md-tooltip>' +
+                                                '</a>' +
                                             '</md-chip>' +
                                         '</md-chips>' +
                                     '</md-card-content>' +
-                                '</span>' +
+                                // '</span>' +
                             '</md-card-header-text>' +
                         '</md-card-header>' +
                       '</md-card>',
-            // template: '<md-content class="topics">' +
-            //             '<div>' +
-            //                 '<h3 >Թեմաներ</h3>' +
-            //                 '<md-button  ' +
-            //                     'ng-click="topics.reload()" aria-label="Reload">' +
-            //                     '<md-icon md-svg-src="assets/img/reload.svg"></md-icon>' +
-            //                 '</md-button>' +
-            //             '</div>' +
-            //             '<md-divider></md-divider>' +
-            //             '<md-chips>' +
-            //                 '<md-chip ng-repeat="topic in topics.topics | orderBy:\'-title.length\'">{{ topic.title }}</md-chip>' +
-            //             '</md-chips>' +
-            //           '</md-content>',
             bindToController: true,
             controller: topicsRandom,
             controllerAs: 'topics',
@@ -54,21 +47,26 @@
         }
     }
 
-    topicsRandom.$inject = ['resources'];
+    topicsRandom.$inject = ['topics', 'topicActions'];
 
     /* @ngInject */
-    function topicsRandom(resources) {
+    function topicsRandom(topics, topicActions) {
 
         var vm = this;
 
         vm.reload = reload;
+        vm.subscribe = subscribe;
 
         reload();
 
         function reload() {
-            resources.topics.query({limit: 24, ordering: '?'}, function (res) {
+            topics().query({page: 1, ordering: '?', not_mine: true}, function (res) {
                 vm.topics = res.results;
             });
+        }
+
+        function subscribe(topic) {
+            topicActions.subscribe(topic);
         }
     }
 
