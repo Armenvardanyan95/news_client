@@ -24052,7 +24052,8 @@ body {
 
 .in-article-link {
   text-decoration: none;
-  color: black; }
+  color: black;
+  position: relative; }
   .in-article-link img {
     width: 100%;
     overflow: hidden; }
@@ -24100,6 +24101,9 @@ input[type=search]:focus {
   background: url("../assets/img/search-active.svg") no-repeat scroll 2px 2px;
   font-color: #323232; }
 
+.magazine-avatar {
+  border-radius: 50% !important; }
+
 .search-results {
   position: fixed;
   right: 16%;
@@ -24129,8 +24133,7 @@ input[type=search]:focus {
     height: 28px;
     background-size: cover;
     background-position: center;
-    border-radius: 50%; }
-  .search-results .search-avatar {
+    border-radius: 50%;
     margin-right: 5px;
     margin-top: 3px; }
   .search-results .md-list-item-text a {
@@ -24191,6 +24194,12 @@ md-sidenav md-toolbar {
 .float-right {
   float: right !important; }
 
+.float-left {
+  float: left !important; }
+
+.cursor-wait {
+  cursor: progress; }
+
 .sticky-header {
   position: fixed;
   top: 0px; }
@@ -24230,6 +24239,15 @@ md-progress-circular {
     color: green; }
   .articles .innerLink:hover {
     text-decoration: underline; }
+
+.article-title {
+  background-color: black;
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(0, 0, 0, 0.35);
+  color: white !important;
+  position: absolute;
+  width: 100%;
+  bottom: 5px; }
 
 .magazines {
   float: left;

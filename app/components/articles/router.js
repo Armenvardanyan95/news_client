@@ -28,7 +28,13 @@
                 controllerAs: 'history',
                 isAuth: true
             })
-
+            .state('saved', {
+                url: '/saved',
+                template: '<articles articles="saved.articles" load-articles="saved.loadArticles()"></articles>',
+                controller: 'SavedArticlesController',
+                controllerAs: 'saved',
+                isAuth: true
+            })
             .state('custom', {
                 url: '/:orderingType',
                 template: '<articles articles="home.articles" load-articles="home.loadArticles()"></articles>',
