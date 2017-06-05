@@ -23,7 +23,7 @@
                     action: action,
                     args: args
                 }
-            })
+            });
 
         }
     }
