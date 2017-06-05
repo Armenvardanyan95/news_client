@@ -48,7 +48,7 @@
             topics().query({search: query, limit: 3}, function (res) {
                 vm.topics = res.results;
             });
-            magazines.query({search: query, limit: 3}, function (res) {
+            magazines().query({search: query, limit: 3}, function (res) {
                 vm.magazines = res.results;
             })
         }
