@@ -36,7 +36,7 @@
 
 
     </head>
-    <body scroll-direction>
+    <body scroll-direction ng-class="{'cursor-wait': xhrLoading}">
         <md-header ng-class="{'sticky-header': scrollDirection == 'up'}"></md-header>
         <div>
             <side-bar></side-bar>
@@ -60,6 +60,7 @@
             <script type="text/javascript" src="components/articles/router.js"></script>
             <script type="text/javascript" src="components/magazines/router.js"></script>
             <script type="text/javascript" src="resources/app.js"></script>
+            <script type="text/javascript" src="components/bottom-menu/app.js"></script>
 
 
             <script type="text/javascript" src="resources/topics.service.js"></script>
@@ -80,6 +81,8 @@
             <script type="text/javascript" src="components/magazines/magazine.controller.js"></script>
             <script type="text/javascript" src="components/accounts/login.controller.js"></script>
             <script type="text/javascript" src="components/articles/history.controller.js"></script>
+            <script type="text/javascript" src="components/articles/saved.articles.controller.js"></script>
+            <script type="text/javascript" src="components/bottom-menu/bottom-menu.controller.js"></script>
 
 
             <script type="text/javascript" src="components/header/header.directive.js"></script>

@@ -21,7 +21,7 @@
                         <md-card ng-repeat-start="article in home.articles track by article.id">
                             <md-card-header>
                                 <md-card-avatar>
-                                    <img class="md-user-avatar" ng-src="{{ article.magazine_details.main_pic }}">
+                                    <a ui-sref="magazine({slug: article.magazine_details.slug})"><img class="md-user-avatar" ng-src="{{ article.magazine_details.main_pic }}"></a>
                                 </md-card-avatar>
                                 <md-card-header-text>
                                     <span class="md-title">
@@ -36,18 +36,30 @@
                                 </span>
                                 </md-card-header-text>
                             </md-card-header>
+                            
+                            
                             <a href="{{ article.reference }}" ng-click="home.viewArticle(article)" class="in-article-link" target="_blank">
                                 <img ng-src="{{ article.image }}" class="md-card-image" alt="image caption">
-                    
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-subhead">
-                                            {{ article.title }}
-                                        </span>
-                                    </md-card-title-text>
-                                </md-card-title>
+                                
+                                <md-card-header class="article-title">
+                                <md-card-header-text>
+                                    <span class="md-title">
+                                        <span>{{ article.title }}</span>
+                                    </span>
+                                </md-card-header-text>
+                            </md-card-header>
                             </a>
-            
+                            
+                            
+                            
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-subhead">
+                                        {{ article.brief }}
+                                    </span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            
                             <md-card-actions layout="row" layout-align="space-between center">
                                 <md-card-content>
                                     <md-icon md-svg-src="assets/img/label.svg" class="color-icon"></md-icon>

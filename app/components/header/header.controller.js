@@ -5,16 +5,18 @@
         .module('app.header')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['magazines', 'topics', '$mdSidenav', '$timeout'];
+    HeaderController.$inject = ['magazines', 'topics', '$mdSidenav', '$timeout', '$mdBottomSheet', '$mdMenu', 'accounts'];
 
     /* @ngInject */
-    function HeaderController(magazines, topics, $mdSidenav, $timeout) {
+    function HeaderController(magazines, topics, $mdSidenav, $timeout, $mdBottomSheet, $mdMenu, accounts) {
         var vm = this;
         
         vm.showList = false;
         vm.toggleSideNav = toggleSideNav;
         vm.search = search;
         vm.toggleSearchBox = toggleSearchBox;
+        vm.showAccountMenu = showAccountMenu;
+        vm.action = action;
 
         vm.menu = [
             {
@@ -24,20 +26,20 @@
             {
                 label: 'Թեմաներ',
                 url: 'magazines'
-            },
-            {
-                label: 'Ռեյթինգային',
-                url: 'custom({orderingType: \'views\'})'
-            },
-            {
-                label: 'Թարմ',
-                url: 'magazines'
-            },
-            {
-                label: 'Խառը',
-                url: 'custom({orderingType: \'random\'})'
             }
         ];
+
+        vm.items = [
+            { id: 1, name: 'Մուտք', icon: 'assets/img/login.svg' },
+            { id: 2, name: 'Իմ տվյալները' },
+            { id: 3, name: 'Կարգավորումներ'},
+        ];
+
+        function action(value) {
+            if(value == 1){
+                accounts.requireAuthorization();
+            }
+        }
         
         function search(query) {
             if(query.length < 3){
@@ -48,7 +50,7 @@
             topics().query({search: query, limit: 3}, function (res) {
                 vm.topics = res.results;
             });
-            magazines.query({search: query, limit: 3}, function (res) {
+            magazines().query({search: query, limit: 3}, function (res) {
                 vm.magazines = res.results;
             })
         }
@@ -62,6 +64,13 @@
                 vm.showList = value;
                 console.log(value, vm.showList, 'agrrr')
             }, 100);
+        }
+
+        function showAccountMenu() {
+            $mdBottomSheet.show({
+                templateUrl: 'components/bottom-menu/bottom-menu.html',
+                controller: 'BottomMenuController as vm'
+            })
         }
         
     }

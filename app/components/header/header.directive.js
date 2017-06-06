@@ -23,6 +23,21 @@
                                             '</a>' +
                                         '</div>' +
                                         '<span flex></span>' +
+                                        '<a hide-gt-xs ng-click="header.showAccountMenu()"><md-icon md-svg-src="assets/img/account.svg"></a>' +
+                                        '<md-menu-bar hide-xs>' +
+                                            '<md-menu>' +
+                                                '<button ng-click="$mdMenu.open()">' +
+                                                        '<md-icon md-svg-src="assets/img/account.svg">' +
+                                                '</button>' +
+                                                '<md-menu-content>' +
+                                                    '<md-menu-item ng-repeat="item in header.items">' +
+                                                        '<md-button ng-click="header.action(item.id)">{{ item.name }}</md-button>' +
+                                                    '</md-menu-item>' +
+                                                '<md-menu-divider></md-menu-divider>' +
+                                                '</md-menu-content>' +
+                                            '</md-menu>' +
+                                        '</md-menu-bar>' +
+                                        '<a><md-icon md-svg-src="assets/img/notification.svg"></a>' +
                                         '<input type="search" ng-model="header.query" placeholder="Որոնել․․․" ' +
                                         'ng-blur="header.toggleSearchBox(false)" ng-focus="header.showList = true" ' +
                                         'ng-model-options="{debounce: 300}" ng-change="header.search(header.query)">' +

@@ -7,6 +7,7 @@
            'app.accounts',
            'app.header',
            'app.sidebar',
+           'app.bottom-menu',
            'app.resources',
            'app.utils',
            'ngMaterial',

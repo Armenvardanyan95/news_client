@@ -43,10 +43,17 @@
                 return false;
             }
 
-            articles().store({id: article.id}, {}, function () {
-                article.is_saved = !article.is_saved;
-                $mdToast.show($mdToast.simple().textContent('Հղումը հաջողությամբ պահպանվել է'));
-            });
+            if(!article.is_saved) {
+                articles().store({id: article.id}, {}, function () {
+                    article.is_saved = true;
+                    $mdToast.show($mdToast.simple().textContent('Հղումը հաջողությամբ պահպանվել է'));
+                });
+            } else {
+                articles().remove({id: article.id}, {}, function () {
+                    article.is_saved = false;
+                    $mdToast.show($mdToast.simple().textContent('Հղումը հաջողությամբ հեռացվել է'));
+                })
+            }
 
         }
     }

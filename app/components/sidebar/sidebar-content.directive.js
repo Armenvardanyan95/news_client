@@ -12,10 +12,6 @@
         var directive = {
             template: '<md-content layout-padding >' +
             '<md-list>' +
-                '<md-subheader>' +
-                    '<md-icon md-svg-src="assets/img/person.svg"></md-icon>' +
-                        'Անձնական' +
-                '</md-subheader>' +
                 '<md-list-item ng-repeat="item in ::vm.personal">' +
                         '<md-button href="" ui-sref="{{ item.url }}">' +
                             '<md-icon md-svg-src="assets/img/{{ item.img }}.svg"></md-icon>' +
@@ -60,11 +56,13 @@
             },
             {
                 label: 'Լրատվականներ',
-                img: 'globe'
+                img: 'globe',
+                url: 'magazines'
             },
             {
                 label: 'Դիտել Հետո',
-                img: 'bookmark-add'
+                img: 'bookmark-add',
+                url: 'saved'
             },
             {
                 label: 'Պատմություն',
